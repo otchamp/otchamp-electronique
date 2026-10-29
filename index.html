@@ -1,0 +1,163 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OTCHAMP ÉLECTRONIQUE 2.0</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f7ff;--card:#fff;--tx:#10203f;--mut:#51607a;--ac:#1d4ed8;--ko:#b91c1c;--bd:#d3def5;--sh:0 10px 30px rgba(29,78,216,.12)}
+@media(prefers-color-scheme:dark){:root{--bg:#0b1220;--card:#121c31;--tx:#e8eefc;--mut:#9fb0d0;--ac:#60a5fa;--ko:#f87171;--bd:#24334f;--sh:0 10px 30px rgba(0,0,0,.4)}}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--tx);font-family:"Poppins",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.65}
+main{max-width:760px;margin:0 auto;padding:14px 14px 40px}
+.top{display:flex;align-items:center;justify-content:space-between;gap:8px;padding:6px 2px 12px}
+.brand{font-weight:800;color:var(--ac);letter-spacing:.3px}
+.hero{--ac:#fff;--bg:#1d4ed8;position:relative;overflow:hidden;text-align:center;color:#fff;border-radius:26px;padding:38px 18px 30px;background:linear-gradient(135deg,#0a2480 0%,#1d4ed8 58%,#3b82f6 100%);box-shadow:0 18px 40px rgba(29,78,216,.35)}
+.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);background-size:30px 30px;mask-image:radial-gradient(circle at 50% 30%,#000 20%,transparent 75%);-webkit-mask-image:radial-gradient(circle at 50% 30%,#000 20%,transparent 75%)}
+.hero::after{content:"";position:absolute;width:320px;height:320px;left:50%;top:-110px;margin-left:-160px;background:radial-gradient(circle,rgba(147,197,253,.55),transparent 65%);animation:glow 4s ease-in-out infinite}
+.hero>*{position:relative;z-index:1}
+.hero svg{animation:float 4s ease-in-out infinite;filter:drop-shadow(0 8px 18px rgba(0,0,0,.3))}
+.hero h1{font-size:1.85rem;font-weight:800;margin:12px 0 6px;line-height:1.2;color:#fff}
+.slogan{font-size:1.05rem;color:#dbe7ff;margin:0 0 20px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;justify-content:center;margin:0 0 22px}
+.chips span{background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);padding:5px 13px;border-radius:99px;font-size:.85rem;font-weight:600}
+h2{font-size:1.25rem;font-weight:700;color:var(--ac);margin:0 0 8px}
+.mut{color:var(--mut)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:22px;padding:20px 20px;margin:18px 0;box-shadow:var(--sh);animation:up .6s ease both}
+.who{display:flex;align-items:center;gap:14px;margin-bottom:6px}
+.av{flex:none;width:54px;height:54px;border-radius:50%;display:grid;place-items:center;color:#fff;font-weight:800;background:linear-gradient(135deg,#1d4ed8,#3b82f6)}
+input{width:100%;padding:13px 14px;margin:6px 0;border:1px solid var(--bd);border-radius:14px;background:var(--bg);color:var(--tx);font:inherit;font-size:1rem}
+input:focus{outline:2px solid var(--ac);outline-offset:1px}
+button{padding:12px 20px;border:0;border-radius:99px;background:var(--ac);color:var(--bg);font:inherit;font-size:1rem;font-weight:600;cursor:pointer;transition:transform .15s,box-shadow .15s}
+button:hover{transform:translateY(-2px);box-shadow:0 8px 18px rgba(29,78,216,.28)}
+button.alt{background:transparent;color:var(--ac);border:1.5px solid var(--ac)}
+.row{display:flex;gap:10px;flex-wrap:wrap;justify-content:center}
+.form .row{justify-content:flex-start}
+#err{color:var(--ko);min-height:1.5em;font-weight:600;font-size:.92rem}
+.hide{display:none}
+footer{text-align:center;font-size:.8rem;margin-top:28px}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+@keyframes glow{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes up{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<main>
+<div class="top"><span class="brand">OTCHAMP ÉLECTRONIQUE 2.0</span><button id="out" class="alt hide">Déconnexion</button></div>
+
+<section id="hero" class="hero">
+<svg width="130" height="130" viewBox="20 20 100 100" role="img" aria-label="Logo OTCHAMP ÉLECTRONIQUE 2.0">
+<circle cx="70" cy="70" r="32" fill="none" style="stroke:var(--ac)" stroke-width="4"/>
+<g style="stroke:var(--ac)" stroke-width="3" stroke-linecap="round" fill="none"><line x1="58" y1="54" x2="58" y2="86"/><line x1="58" y1="54" x2="76" y2="54"/><line x1="58" y1="70" x2="72" y2="70"/><line x1="58" y1="86" x2="76" y2="86"/><line x1="38" y1="70" x2="28" y2="70"/><line x1="70" y1="38" x2="70" y2="28"/><line x1="102" y1="70" x2="112" y2="70"/></g>
+<g style="fill:var(--ac)"><circle cx="78" cy="54" r="3"/><circle cx="74" cy="70" r="3"/><circle cx="78" cy="86" r="3"/><circle cx="26" cy="70" r="3"/><circle cx="70" cy="26" r="3"/><circle cx="114" cy="70" r="3"/></g>
+<rect x="84" y="90" width="30" height="18" rx="9" style="fill:var(--ac)"/>
+<text x="99" y="103" text-anchor="middle" font-size="12" font-weight="700" style="fill:var(--bg)">2.0</text>
+</svg>
+<h1>OTCHAMP ÉLECTRONIQUE 2.0</h1>
+<p class="slogan">Aujourd’hui tu apprends, demain tu inventes.</p>
+<div class="chips"><span>Gratuit</span><span>À ton rythme</span><span>Pour tous les jeunes</span></div>
+<div class="row"><button id="heroUp">S’inscrire gratuitement</button><button id="heroIn" class="alt">Se connecter</button></div>
+</section>
+
+<section id="about" class="card">
+<div class="who"><div class="av">OT</div><div><h2 style="margin:0">Qui suis-je ?</h2><span class="mut" style="font-size:.88rem">Kouakou Tahouago Jean-Paul, alias OTCHAMP</span></div></div>
+<p>Je suis étudiant en électronique et informatique à Abidjan. Depuis 9 ans, je travaille pendant les vacances dans des cybercafés, où j’ai appris la gestion de la clientèle, la saisie, Word, Excel et les logiciels de caisse.</p>
+<p>J’ai créé <b>OTCHAMP ÉLECTRONIQUE 2.0</b> pour aider les jeunes à devenir les inventeurs de demain. Ici, tu apprends à ton rythme, gratuitement, pas à pas. Tu peux y arriver : tous les grands inventeurs ont commencé par une première leçon. Rejoins-nous !</p>
+</section>
+
+<section id="auth" class="card form hide">
+<h2>Rejoins-nous</h2>
+<div class="row" style="justify-content:flex-start"><button id="tabIn">Se connecter</button><button id="tabUp" class="alt">Créer un compte</button></div>
+<input id="name" class="hide" placeholder="Ton prénom" autocomplete="given-name">
+<input id="email" type="email" placeholder="E-mail" autocomplete="email">
+<input id="pw" type="password" placeholder="Mot de passe (6 caractères min.)" autocomplete="current-password">
+<div id="err"></div>
+<div class="row"><button id="go">Se connecter</button><button id="reset" class="alt">Mot de passe oublié</button></div>
+</section>
+
+<section id="app" class="hide">
+<h2 id="hello"></h2>
+<div class="card"><p class="mut" style="margin:0">Les cours arrivent bientôt. On les construira ensemble.</p></div>
+</section>
+<footer class="mut">© OTCHAMP ÉLECTRONIQUE 2.0</footer>
+</main>
+
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-app.js";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, updateProfile, sendPasswordResetEmail } from "https://www.gstatic.com/firebasejs/10.14.1/firebase-auth.js";
+
+const app = initializeApp({
+  apiKey: "AIzaSyAmlevE3Vud91OAXrXzaCyX5oJ9KZM3zN0",
+  authDomain: "otchamp-electronique.firebaseapp.com",
+  projectId: "otchamp-electronique",
+  storageBucket: "otchamp-electronique.firebasestorage.app",
+  messagingSenderId: "511458883592",
+  appId: "1:511458883592:web:ed50ef93afc4c7aad779bd"
+});
+const auth = getAuth(app);
+const $ = i => document.getElementById(i);
+let signup = false;
+
+const MSG = {
+  "auth/email-already-in-use":"Cet e-mail a déjà un compte. Connecte-toi.",
+  "auth/invalid-credential":"E-mail ou mot de passe incorrect.",
+  "auth/wrong-password":"E-mail ou mot de passe incorrect.",
+  "auth/user-not-found":"E-mail ou mot de passe incorrect.",
+  "auth/weak-password":"Mot de passe trop court (6 caractères minimum).",
+  "auth/invalid-email":"Adresse e-mail invalide.",
+  "auth/missing-password":"Entre ton mot de passe.",
+  "auth/network-request-failed":"Pas de connexion Internet."
+};
+const showErr = e => { $("err").textContent = MSG[e.code] || "Erreur, réessaie."; };
+
+function mode(up){
+  signup = up;
+  $("name").classList.toggle("hide", !up);
+  $("go").textContent = up ? "Créer mon compte" : "Se connecter";
+  $("tabIn").className = up ? "alt" : "";
+  $("tabUp").className = up ? "" : "alt";
+  $("pw").autocomplete = up ? "new-password" : "current-password";
+  $("err").textContent = "";
+}
+function goAuth(up){ mode(up); $("auth").scrollIntoView({behavior:"smooth"}); }
+$("tabIn").onclick = () => mode(false);
+$("tabUp").onclick = () => mode(true);
+$("heroUp").onclick = () => goAuth(true);
+$("heroIn").onclick = () => goAuth(false);
+
+$("go").onclick = async () => {
+  $("err").textContent = "";
+  const email = $("email").value.trim(), pw = $("pw").value;
+  try {
+    if (signup) {
+      const c = await createUserWithEmailAndPassword(auth, email, pw);
+      const n = $("name").value.trim();
+      if (n) await updateProfile(c.user, { displayName: n });
+      $("hello").textContent = "Bienvenue" + (n ? ", " + n : "") + " 👋";
+    } else {
+      await signInWithEmailAndPassword(auth, email, pw);
+    }
+  } catch (e) { showErr(e); }
+};
+$("reset").onclick = async () => {
+  const email = $("email").value.trim();
+  if (!email) { $("err").textContent = "Entre d’abord ton e-mail."; return; }
+  try { await sendPasswordResetEmail(auth, email); $("err").textContent = "E-mail de réinitialisation envoyé."; }
+  catch (e) { showErr(e); }
+};
+$("out").onclick = () => signOut(auth);
+
+onAuthStateChanged(auth, u => {
+  $("hero").classList.toggle("hide", !!u);
+  $("auth").classList.toggle("hide", !!u);
+  $("app").classList.toggle("hide", !u);
+  $("out").classList.toggle("hide", !u);
+  if (u) $("hello").textContent = "Bienvenue" + (u.displayName ? ", " + u.displayName : "") + " 👋";
+});
+</script>
+</body>
+</html>
